@@ -14,13 +14,13 @@ const Styles = StyleSheet.create({
     LoginBodyContainer: {
         flex: 1,
         flexDirection: 'column',
-        justifyContent: 'center',
+        justifyContent: 'flex-start',
         alignItems: 'stretch'
     },
     LoginFormBox: {
-        flex: 1/2,
+        flex: 1 / 2,
         flexDirection: 'column',
-        justifyContent: 'space-between',
+        justifyContent: 'space-around',
         alignItems: 'stretch'
     },
     LoginTextInput: {
@@ -31,19 +31,29 @@ const Styles = StyleSheet.create({
         alignItems: 'stretch'
     },
     LoginButtonLogin: {
-        height: 60, 
-        alignSelf: 'stretch', 
-        justifyContent: 'center', 
-        alignItems: 'center', 
-        margin: 10, 
-        backgroundColor: Colors.buttonLoginColor 
+        height: 60,
+        alignSelf: 'stretch',
+        justifyContent: 'center',
+        alignItems: 'center',
+        margin: 10,
+        backgroundColor: Colors.buttonLoginColor
     },
     LoginButtonLoginWithGoogle: {
-        height: 60, 
-        alignSelf: 'stretch', 
-        justifyContent: 'center', 
-        alignItems: 'center', 
-        margin: 10, backgroundColor: Colors.buttonLoginComGoogle, flexDirection: 'row' 
+        height: 60,
+        alignSelf: 'stretch',
+        justifyContent: 'center',
+        alignItems: 'center',
+        margin: 10, backgroundColor: Colors.buttonLoginComGoogle, flexDirection: 'row'
+    },
+    //headerview---------------------------------------------------
+    HeaderContainer: {
+        backgroundColor: Colors.headerColor
+    },
+    EdgeDivisor: { 
+        flexDirection: 'row',
+        justifyContent: 'center',
+        alignItems: 'center',
+        marginVertical: 40
     }
 })
 

@@ -2,12 +2,13 @@ import React from 'react';
 import { Text, View } from 'react-native';
 import { Input, Button, Header, Left, Right, Title, Body, Container } from 'native-base';
 import Icons from 'react-native-vector-icons/Entypo';
+import Styles from '../utils/Styles';
 
 class HeaderComponent extends React.Component {
     render() {
         return (
             <View style={{ height: 60 }}>
-                <Header>
+                <Header style={Styles.HeaderContainer}>
                     <Left>
                         <Title style={{marginLeft: 20, fontSize: 18}}>
                             {this.props.itemLeft}

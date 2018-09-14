@@ -16,7 +16,7 @@ const TextInput = props => (
 )
 
 const EdgeDivisor = props => (
-    <View style={{ flexDirection: 'row', justifyContent: 'center', alignItems: 'center' }}>
+    <View style={Styles.EdgeDivisor}>
         <View style={{ flex: 1, height: 0.8, backgroundColor: '#999', marginHorizontal: 20 }} />
         <View style={{ zIndex: 99, position: 'absolute', alignSelf: 'center' }}>
             <Text style={{ backgroundColor: 'white', paddingHorizontal: 10, textAlign: 'center' }}>ou</Text>

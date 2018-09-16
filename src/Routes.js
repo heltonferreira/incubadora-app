@@ -1,30 +1,33 @@
 import React, { Component } from 'react';
-import { createStackNavigator } from 'react-navigation';
-import Login from './views/Login';
-import Incubadora from './views/Incubadora';
+import { createStackNavigator, createDrawerNavigator } from 'react-navigation';
+import LoginView from './views/LoginView';
+import IncubadoraView from './views/IncubadoraView';
+import HomeView from './views/HomeView';
 
 
-
-const MainStack = createStackNavigator({
+const MainStack = createDrawerNavigator({
         Home: {
-            screen: Incubadora
+            screen: HomeView
+        },
+        Incubadora: {
+            screen: IncubadoraView
         }
     },
     {
-        initialRouteName: 'Home'
+        initialRouteName: 'Home',        
     }
 );
 
 const Routes = createStackNavigator({
-        Initial: {
-            screen: Login
+        InitialRoutes: {
+            screen: LoginView
         },
         MainRoutes: {
             screen: MainStack
         },
     },
     {
-        initialRouteName: 'Initial',
+        initialRouteName: 'MainRoutes',
         headerMode: 'none'//Remove o Header default
     }
 );

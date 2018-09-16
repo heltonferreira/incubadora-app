@@ -6,10 +6,8 @@ import Styles from '../utils/Styles';
 class Incubadora extends Component {
     render() {
         return (
-            <View style={ Styles.LoginContainer }>
-                <View style={ Styles.LoginBodyContainer }>
-                    <Text>Incubadora</Text>
-                </View>
+            <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+                <Text>IncubadoraView</Text>
             </View>
         );
     }

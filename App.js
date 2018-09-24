@@ -8,18 +8,23 @@ class App extends Component {
 
   initializeFirebase() {
     let config = {
-      apiKey: "AIzaSyCoZqrtdE35elrBNGD6pdo13gGApegyZeA",
-      authDomain: "incubadora-app.firebaseapp.com",
-      databaseURL: "https://incubadora-app.firebaseio.com",
-      projectId: "incubadora-app",
-      storageBucket: "incubadora-app.appspot.com",
-      messagingSenderId: "907532761491"
+      apiKey: "AIzaSyBLwMSdO1R0klFfHMYVrGL6QZfj4Ol4sCo",
+      authDomain: "react-native-incubadora-app.firebaseapp.com",
+      databaseURL: "https://react-native-incubadora-app.firebaseio.com",
+      projectId: "react-native-incubadora-app",
+      storageBucket: "react-native-incubadora-app.appspot.com",
+      messagingSenderId: "246616666657"
     };
-    firebase.initializeApp(config);
+    return Promise.all(firebase.initializeApp(config));
   }
 
-  componentDidMount() {
-    //this.initializeFirebase();
+  async componentWillMount() {
+    await this.initializeFirebase()
+    /* .then(() => {
+      firebase.auth().createUserWithEmailAndPassword("teste@teste.com", "123456")
+      .then(() => console.log("usuario criado com sucesso!"))
+      .catch(err => console.log("erro ao criar o usuario:", err));
+    }) */
   }
 
   render() {

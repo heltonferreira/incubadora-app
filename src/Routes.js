@@ -27,7 +27,7 @@ const Routes = createStackNavigator({
         },
     },
     {
-        initialRouteName: 'MainRoutes',
+        initialRouteName: 'InitialRoutes',
         headerMode: 'none'//Remove o Header default
     }
 );

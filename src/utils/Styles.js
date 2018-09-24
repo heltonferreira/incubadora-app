@@ -115,6 +115,14 @@ const Styles = StyleSheet.create({
         fontSize: 14,
         color: 'white',
         fontWeight: 'bold'
+    },
+    DrawerNavigatorContent: {
+        flex: 2/4, 
+        flexDirection: 'column', 
+        justifyContent: 'flex-start', 
+        alignItems: 'flex-start', 
+        alignContent: 'space-around', 
+        backgroundColor: Colors.drawerContentBackground
     }
 })
 

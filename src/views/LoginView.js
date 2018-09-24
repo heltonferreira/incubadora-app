@@ -53,13 +53,11 @@ class LoginView extends Component {
     }
 
     setSenha(text) {
-        console.warn("Texto recebido:", text);
         if(text)
             this.setState({password: text});
     }
 
     Login() {
-        console.warn("email:", typeof(this.state.email));
         firebase.auth().signInWithEmailAndPassword(this.state.email, this.state.password)
         .then(() => this.props.navigation.navigate("MainRoutes"))
         .catch(err => console.error("Erro:", err));

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { StyleSheet } from 'react-native';
-import Colors from '../utils/Colors';
+import Colors from './Colors';
 
 const Styles = StyleSheet.create({
     //LoginView---------------------------------------
@@ -95,6 +95,26 @@ const Styles = StyleSheet.create({
         flexDirection: 'column',
         justifyContent: 'flex-start',
         alignItems: 'stretch'
+    },
+    //DrawerNavigatorContent---------------------------------------
+    //-------------------------------------------------------------
+    DrawerNavigatorEdgeDivisor: {
+        width: null,
+        height: 0.8, 
+        backgroundColor: Colors.edgeDivisorDrawerNavigatorColor
+    },
+    DrawerNavigatorFooter: {
+        flex: 1/4, 
+        flexDirection: 'column', 
+        justifyContent: 'space-around', 
+        alignItems: 'flex-start', 
+        backgroundColor: Colors.drawerContentBackground,
+        paddingLeft: 15
+    },
+    DrawerNavigatorLabelText: {
+        fontSize: 14,
+        color: 'white',
+        fontWeight: 'bold'
     }
 })
 

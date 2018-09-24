@@ -3,6 +3,8 @@ import { createStackNavigator, createDrawerNavigator } from 'react-navigation';
 import LoginView from './views/LoginView';
 import IncubadoraView from './views/IncubadoraView';
 import HomeView from './views/HomeView';
+import DrawerNavigatorContent from './components/DrawerNavigatorContent';
+import Styles from './utils/Styles';
 
 
 const MainStack = createDrawerNavigator({
@@ -14,7 +16,11 @@ const MainStack = createDrawerNavigator({
         }
     },
     {
-        initialRouteName: 'Home',        
+        initialRouteName: 'Home',
+        contentComponent: DrawerNavigatorContent,
+        contentOptions: {
+            labelStyle: Styles.DrawerNavigatorLabelText
+        }
     }
 );
 
@@ -27,7 +33,7 @@ const Routes = createStackNavigator({
         },
     },
     {
-        initialRouteName: 'InitialRoutes',
+        initialRouteName: 'MainRoutes',
         headerMode: 'none'//Remove o Header default
     }
 );

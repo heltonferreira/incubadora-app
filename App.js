@@ -18,13 +18,8 @@ class App extends Component {
     return Promise.all(firebase.initializeApp(config));
   }
 
-  async componentWillMount() {
-    await this.initializeFirebase()
-    /* .then(() => {
-      firebase.auth().createUserWithEmailAndPassword("teste@teste.com", "123456")
-      .then(() => console.log("usuario criado com sucesso!"))
-      .catch(err => console.log("erro ao criar o usuario:", err));
-    }) */
+  async componentDidMount() {
+    await this.initializeFirebase();
   }
 
   render() {

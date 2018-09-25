@@ -6,11 +6,7 @@ import Styles from '../utils/Styles';
 
 
 const UserIconDefault = () => (
-    <View 
-        style={{ borderRadius: 60, backgroundColor: 'white', marginLeft: 15, marginRight: 10 }}
-    >
-        <Icon name='person' size={40} color={ Colors.iconUserDefaultColor }/>
-    </View>
+    <Image source={require('../assets/user_default_icon.png')} style={{height: 60, width: 60, resizeMode: 'contain'}}/>
 );
 
 const Description = (props) => (

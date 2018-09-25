@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, TouchableOpacity } from 'react-native';
+import { View, Text, TouchableOpacity, Image } from 'react-native';
 import { Container, Content, Footer } from 'native-base';
 import Styles from '../utils/Styles';
 import Colors from '../utils/Colors';
@@ -12,21 +12,17 @@ const EdgeDivisor = () => (
 );
 
 const UserIconDefault = () => (
-    <View 
-        style={{ borderRadius: 60, backgroundColor: 'white' }}
-    >
-        <Icon name='person' size={100} color={ Colors.iconUserDefaultColor }/>
-    </View>
+    <Image source={require('../assets/user_default_icon.png')} style={{height: 100, width: 100, resizeMode: 'contain'}}/>
 );
 
 const DrawerNavigatorContent = (props) => (
   <Container style={{ flex: 1 }}>
-    <TouchableOpacity style={{ flex: 1/4, flexDirection: 'row', justifyContent: 'center', alignItems: 'center', backgroundColor: Colors.drawerHeaderBackground }}>
+    <TouchableOpacity style={ Styles.DrawerNavigatorHeader }>
         <UserIconDefault />
 
         <View style={{ marginLeft: 15 }}>
-            <Text style={{ fontWeight: 'bold', color: 'white', fontSize: 24 }}>Empresa Teste</Text>
-            <Text style={{ fontWeight: 'bold', color: 'white', fontSize: 18 }}>Pessoa teste</Text>
+            <Text style={{ color: 'white', fontSize: 20 }}>Empresa Teste</Text>
+            <Text style={{ color: 'white', fontSize: 16 }}>Pessoa teste</Text>
         </View>
     </TouchableOpacity>
     <View style={ Styles.DrawerNavigatorContent }>

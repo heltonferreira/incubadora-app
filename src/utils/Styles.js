@@ -103,6 +103,13 @@ const Styles = StyleSheet.create({
         height: 0.8, 
         backgroundColor: Colors.edgeDivisorDrawerNavigatorColor
     },
+    DrawerNavigatorHeader: {
+        flex: 1/4, 
+        flexDirection: 'row', 
+        justifyContent: 'center', 
+        alignItems: 'center', 
+        backgroundColor: Colors.drawerHeaderBackground
+    },
     DrawerNavigatorFooter: {
         flex: 1/4, 
         flexDirection: 'column', 
@@ -113,8 +120,7 @@ const Styles = StyleSheet.create({
     },
     DrawerNavigatorLabelText: {
         fontSize: 14,
-        color: 'white',
-        fontWeight: 'bold'
+        color: 'white'
     },
     DrawerNavigatorContent: {
         flex: 2/4, 

@@ -14,7 +14,7 @@ const Data = () => {
 class Incubadora extends Component {
     render() {
         return (
-            <View style={{ flex: 1, flexDirection: 'column', justifyContent: 'flex-start', alignItems: 'stretch' }}>
+            <View style={{ flex: 1, flexDirection: 'column', justifyContent: 'flex-start', alignItems: 'stretch', backgroundColor: 'white' }}>
                 <FlatList 
                     data={ Data() }
                     renderItem={ ({ item }) => (

@@ -1,5 +1,5 @@
-# Food Project
-App created with React Native, Redux e Firebase.
+#Incubadora App
+App created with React Native, Redux and Firebase.
 
 Para iniciar o projeto após clonagem, executar os comandos:
 npm install

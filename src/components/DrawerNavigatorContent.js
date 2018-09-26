@@ -26,7 +26,7 @@ const DrawerNavigatorContent = (props) => (
         </View>
     </TouchableOpacity>
     <View style={ Styles.DrawerNavigatorContent }>
-      <DrawerItems {...props} />
+      <DrawerItems {...props}/>
     </View>
     <EdgeDivisor/>
     <View style={ Styles.DrawerNavigatorFooter }>

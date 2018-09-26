@@ -54,8 +54,7 @@ const MainStack = createDrawerNavigator({
         initialRouteName: 'Home',
         contentComponent: DrawerNavigatorContent,
         contentOptions: {
-            labelStyle: Styles.DrawerNavigatorLabelText,
-            itemStyle: Styles.DrawerNavigatorLabelText
+            labelStyle: Styles.DrawerNavigatorLabelText
         }
     }
 );

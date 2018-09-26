@@ -120,6 +120,7 @@ const Styles = StyleSheet.create({
     },
     DrawerNavigatorLabelText: {
         fontSize: 14,
+        fontWeight: 'bold',
         color: 'white'
     },
     DrawerNavigatorContent: {

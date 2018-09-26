@@ -31,8 +31,7 @@ const Styles = StyleSheet.create({
     LoginBodyContainer: {
         flex: 1,
         flexDirection: 'column',
-        justifyContent: 'flex-start',
-        alignItems: 'stretch'
+        justifyContent: 'flex-start'
     },
     LoginFormBox: {
         flex: 1 / 2,

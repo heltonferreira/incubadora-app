@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text } from 'react-native';
+import { View, Text, Animated, Dimensions } from 'react-native';
 import firebase from 'firebase';
 import Styles from '../utils/Styles';
 import { Input, Button } from 'native-base';
@@ -7,6 +7,7 @@ import Header from '../components/HeaderComponent';
 import Icons from 'react-native-vector-icons/FontAwesome';
 import Colors from '../utils/Colors';
 
+const { height, width } = Dimensions.get('window');
 
 const TextInput = props => (
     <View style={ Styles.LoginTextInput }>
@@ -28,6 +29,10 @@ const ButtonLogin = props => (
     <Button 
         style={ Styles.LoginButtonLogin }
         onPress={ () => props.clickAction() }
+        onLayout={(event) => {
+            let {x, y, width, height} = event.nativeEvent.layout;
+            Animated.spring(props.animated, { toValue: { x:0, y }}).start()
+        }}
     >
         <Text style={{ color:'white', fontSize: 16, textAlign: 'center' }}>{props.text}</Text>
     </Button>
@@ -41,10 +46,10 @@ const ButtonLoginWithGoogle = props => (
 )
 
 class LoginView extends Component {
-
     constructor(props){
         super(props);
         this.state = {email: "teste@teste.com", password: "123456"};
+        this.animated = new Animated.ValueXY({ x: 0, y: height });
     }
 
     setEmail(text) {
@@ -71,11 +76,12 @@ class LoginView extends Component {
                     <TextInput title='Email' setText={ (text) => this.setEmail(text) } extraProps={{ textContentType: "emailAddress", defaultValue: "teste@teste.com" }}/>
                     <TextInput title='Senha' setText={ (text) => this.setSenha(text) } extraProps={{ textContentType: "password", defaultValue: "123456" }}/>
                 </View>
-
-                <View style={ Styles.LoginBodyContainer }>
-                    <ButtonLogin text='Login' clickAction={ () => this.Login() }/>
-                    {/* <EdgeDivisor /> 
-                    <ButtonLoginWithGoogle text='Login com Google'/> */}
+                <View style={Styles.LoginBodyContainer}>
+                    <Animated.View style={ this.animated.getLayout() }>
+                        <ButtonLogin text='Login' clickAction={ () => this.Login() } animated={this.animated}/>
+                        {/* <EdgeDivisor />
+                        <ButtonLoginWithGoogle text='Login com Google'/> */}
+                    </Animated.View>
                 </View>
             </View>
         );

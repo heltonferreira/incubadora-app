@@ -129,6 +129,28 @@ const Styles = StyleSheet.create({
         alignItems: 'flex-start', 
         alignContent: 'space-around', 
         backgroundColor: Colors.drawerContentBackground
+    },
+    //CardItemIncubadora------------------------------------------
+    //------------------------------------------------------------
+    CardItemContainer: {
+        flex: 1, 
+        flexDirection: 'row', 
+        justifyContent: 'space-around', 
+        alignItems: 'center'
+    },
+    UserIconDefault: {
+        height: 60, 
+        width: 60, 
+        resizeMode: 'contain'
+    },
+    //IncubadoraView----------------------------------------------
+    //------------------------------------------------------------
+    IncubadoraViewContainer: {
+        flex: 1, 
+        flexDirection: 'column', 
+        justifyContent: 'flex-start', 
+        alignItems: 'stretch', 
+        backgroundColor: 'white'
     }
 })
 

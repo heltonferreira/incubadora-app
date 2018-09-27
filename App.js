@@ -5,6 +5,10 @@ import firebase from 'firebase';
 
 
 class App extends Component {
+  constructor(props){
+    super(props);
+    console.disableYellowBox = true;
+  }
 
   initializeFirebase() {
     let config = {

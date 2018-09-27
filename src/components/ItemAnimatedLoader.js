@@ -5,7 +5,7 @@ import { Rect, Circle } from 'react-native-svg';
 
 
 const { height, width } = Dimensions.get('window');
-const ItemAnimatedLoader = () => (
+const ItemAnimatedLoader = (props) => (
     <ContentLoader height={100} width={width} duration={1000}>
         <Rect x="10%" y="15" rx="4" ry="4" width="60%" height="10"/>
         <Rect x="10%" y="30" rx="4" ry="4" width="60%" height="10"/>

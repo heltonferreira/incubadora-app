@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { View, Text, Animated, Dimensions } from 'react-native';
 import firebase from 'firebase';
 import Styles from '../utils/Styles';
-import { Input, Button } from 'native-base';
+import { Input, Button, Spinner } from 'native-base';
 import Header from '../components/HeaderComponent';
 import Icons from 'react-native-vector-icons/FontAwesome';
 import Colors from '../utils/Colors';
@@ -38,17 +38,27 @@ const ButtonLogin = props => (
     </Button>
 )
 
-const ButtonLoginWithGoogle = props => (
+const Progress = (props) => {
+    if(props.error) {
+        return <Text style={{ color: '#c63837', fontSize: 14, textAlign: 'center' }}>{props.error}</Text>;
+    }
+    else if(props.progress){
+        return <Spinner />;
+    }
+    return null;
+}
+
+/* const ButtonLoginWithGoogle = props => (
     <Button style={ Styles.LoginButtonLoginWithGoogle }>
         <Icons name='google' size={ 28 } color='white' style={{ marginLeft: -100, paddingLeft: 0 }}/>
         <Text style={{ color:'white', fontSize: 16, textAlign: 'center', marginLeft: 60 }}>{props.text}</Text>
     </Button>
-)
+) */
 
 class LoginView extends Component {
     constructor(props){
         super(props);
-        this.state = {email: "teste@teste.com", password: "123456"};
+        this.state = {email: "teste@teste.com", password: "123456", error: null, progress: null};
         this.animated = new Animated.ValueXY({ x: 0, y: height });
     }
 
@@ -63,9 +73,13 @@ class LoginView extends Component {
     }
 
     Login() {
+        this.setState({progress: 'loading', error: null})
         firebase.auth().signInWithEmailAndPassword(this.state.email, this.state.password)
-        .then(() => this.props.navigation.navigate("MainRoutes"))
-        .catch(err => console.error("Erro:", err));
+        .then(() => { 
+            this.setState({progress: null, error: null})
+            this.props.navigation.navigate("MainRoutes") 
+        })
+        .catch(err => { this.setState({ error: ''+err, progress: null })} );
     }
 
     render() {
@@ -74,9 +88,10 @@ class LoginView extends Component {
                 <Header itemLeft='Login' itemBody={null}/>
                 <View style={ Styles.LoginFormBox }>
                     <TextInput title='Email' setText={ (text) => this.setEmail(text) } extraProps={{ textContentType: "emailAddress", defaultValue: "teste@teste.com" }}/>
-                    <TextInput title='Senha' setText={ (text) => this.setSenha(text) } extraProps={{ textContentType: "password", defaultValue: "123456" }}/>
+                    <TextInput title='Senha' setText={ (text) => this.setSenha(text) } extraProps={{ textContentType: "password", secureTextEntry: true, defaultValue: "123456" }}/>
                 </View>
                 <View style={Styles.LoginBodyContainer}>
+                    <Progress error={this.state.error} progress={this.state.progress}/>
                     <Animated.View style={ this.animated.getLayout() }>
                         <ButtonLogin text='Login' clickAction={ () => this.Login() } animated={this.animated}/>
                         {/* <EdgeDivisor />

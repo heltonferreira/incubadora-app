@@ -5,13 +5,25 @@ import Styles from '../utils/Styles';
 import { Input, Button, Spinner } from 'native-base';
 import Header from '../components/HeaderComponent';
 import Icons from 'react-native-vector-icons/FontAwesome';
+import IconFoundation from 'react-native-vector-icons/Foundation';
+import IconMaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import Colors from '../utils/Colors';
 
 const { height, width } = Dimensions.get('window');
 
 const TextInput = props => (
     <View style={ Styles.LoginTextInput }>
-        <Input placeholder={props.title} onChangeText={ text => props.setText(text) } {...props.extraProps}/>
+        <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center'}}>
+            <Input placeholder={props.title} onChangeText={ text => props.setText(text) } {...props.extraProps} />
+            { props.email ? 
+                <IconMaterialIcons name='email' size={24} color='black'/> : 
+                <IconFoundation name='eye' size={28} color='black' 
+                    style={{marginRight: 5}}
+                    onPress={() => props.showPassword(500)}
+                    onLongPress={() => props.showPassword(1000)}
+                />
+            }
+        </View>
         <View style={ Styles.LoginTextInputEdge }/>
     </View>
 )
@@ -58,7 +70,7 @@ const Progress = (props) => {
 class LoginView extends Component {
     constructor(props){
         super(props);
-        this.state = {email: "teste@teste.com", password: "123456", error: null, progress: null};
+        this.state = {email: "teste@teste.com", password: "123456", error: null, progress: null, show: true};
         this.animated = new Animated.ValueXY({ x: 0, y: height });
     }
 
@@ -82,13 +94,30 @@ class LoginView extends Component {
         .catch(err => { this.setState({ error: ''+err, progress: null })} );
     }
 
+    showPassword(time) {
+        this.setState({show: false}, () => setTimeout( () =>
+            this.setState({show: true}), 
+            time
+        ));
+    }
+
     render() {
         return (
             <View style={ Styles.LoginContainer }>
                 <Header itemLeft='Login' itemBody={null}/>
                 <View style={ Styles.LoginFormBox }>
-                    <TextInput title='Email' setText={ (text) => this.setEmail(text) } extraProps={{ textContentType: "emailAddress", defaultValue: "teste@teste.com" }}/>
-                    <TextInput title='Senha' setText={ (text) => this.setSenha(text) } extraProps={{ textContentType: "password", secureTextEntry: true, defaultValue: "123456" }}/>
+                    <TextInput 
+                        title='Email'
+                        email
+                        setText={ (text) => this.setEmail(text) } 
+                        extraProps={{ textContentType: "emailAddress", defaultValue: "teste@teste.com" }}
+                    />
+                    <TextInput 
+                        title='Senha' 
+                        setText={ (text) => this.setSenha(text) } 
+                        showPassword={(time) => this.showPassword(time)}
+                        extraProps={{ textContentType: "password", secureTextEntry: this.state.show, defaultValue: "123456" }}
+                    />
                 </View>
                 <View style={Styles.LoginBodyContainer}>
                     <Progress error={this.state.error} progress={this.state.progress}/>

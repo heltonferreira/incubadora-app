@@ -40,11 +40,11 @@ const Styles = StyleSheet.create({
         alignItems: 'stretch'
     },
     LoginTextInput: {
-        height: 45,
-        paddingHorizontal: 10,
         flexDirection: 'column',
         justifyContent: 'center',
-        alignItems: 'stretch'
+        alignItems: 'stretch',
+        height: 45,
+        paddingHorizontal: 10
     },
     LoginTextInputEdge: {
         backgroundColor: '#999', 

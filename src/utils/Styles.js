@@ -130,6 +130,21 @@ const Styles = StyleSheet.create({
         alignContent: 'space-around', 
         backgroundColor: Colors.drawerContentBackground
     },
+    LoginMessageError: {
+        color: '#c63837', 
+        fontSize: 14, 
+        textAlign: 'center'
+    },
+    LoginTextButtonLogin: {
+        color:'white', 
+        fontSize: 16, 
+        textAlign: 'center'
+    },
+    LoginIconHolder: {
+        flexDirection: 'row', 
+        justifyContent: 'space-between', 
+        alignItems: 'center'
+    },
     //CardItemIncubadora------------------------------------------
     //------------------------------------------------------------
     CardItemContainer: {

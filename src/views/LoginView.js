@@ -13,12 +13,12 @@ const { height, width } = Dimensions.get('window');
 
 const TextInput = props => (
     <View style={ Styles.LoginTextInput }>
-        <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center'}}>
+        <View style={ Styles.LoginIconHolder }>
             <Input placeholder={props.title} onChangeText={ text => props.setText(text) } {...props.extraProps} />
             { props.email ? 
                 <IconMaterialIcons name='email' size={24} color='black'/> : 
                 <IconFoundation name='eye' size={28} color='black' 
-                    style={{marginRight: 5}}
+                    style={{ marginRight: 5 }}
                     onPress={() => props.showPassword(500)}
                     onLongPress={() => props.showPassword(1000)}
                 />
@@ -46,13 +46,13 @@ const ButtonLogin = props => (
             Animated.spring(props.animated, { toValue: { x:0, y }}).start()
         }}
     >
-        <Text style={{ color:'white', fontSize: 16, textAlign: 'center' }}>{props.text}</Text>
+        <Text style={ Styles.LoginTextButtonLogin }>{props.text}</Text>
     </Button>
 )
 
 const Progress = (props) => {
     if(props.error) {
-        return <Text style={{ color: '#c63837', fontSize: 14, textAlign: 'center' }}>{props.error}</Text>;
+        return <Text style={ Styles.LoginMessageError }>{props.error}</Text>;
     }
     else if(props.progress){
         return <Spinner />;
@@ -72,6 +72,10 @@ class LoginView extends Component {
         super(props);
         this.state = {email: "teste@teste.com", password: "123456", error: null, progress: null, show: true};
         this.animated = new Animated.ValueXY({ x: 0, y: height });
+    }
+
+    componentDidMount() {
+        this.props.navigation.navigate("MainRoutes");
     }
 
     setEmail(text) {
@@ -99,6 +103,12 @@ class LoginView extends Component {
             this.setState({show: true}), 
             time
         ));
+    }
+
+    isLogged() {
+        if(firebase.auth().currentUser){
+            this.props.navigation.navigate("MainRoutes");
+        }
     }
 
     render() {

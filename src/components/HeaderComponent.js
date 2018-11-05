@@ -5,7 +5,7 @@ import Icons from 'react-native-vector-icons/Entypo';
 import Styles from '../utils/Styles';
 
 const Icon = props => {
-    return props.icon ? props.icon() : null;
+    return props.icon ? props.icon : null;
 }
 
 class HeaderComponent extends React.Component {

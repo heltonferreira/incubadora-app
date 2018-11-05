@@ -7,7 +7,7 @@ import ItemAnimatedLoader from '../components/ItemAnimatedLoader';
 
 
 const Data = () => (
-    Array(10).fill({title: 'Teste title', description: 'Description de teste'})
+    Array(10).fill({title: 'Empresa Incubada', description: 'Descrição da empresa incubada'})
 )
 
 const FlatListAnimatedLoader = () => (
@@ -73,16 +73,16 @@ class Incubadora extends Component {
     }
 
     render() {
-        if(this.state.status === 'loading') {
+        if(this.state.status === 'loading')
             return <FlatListAnimatedLoader />
-        }
+        
         return (
             <Root>
                 <View style={ Styles.IncubadoraViewContainer }>
                     <FlatList
                         data={ Data() }
-                        renderItem={ ({ item }) => (
-                            <CardItemIncubadora title={item.title} description={item.description}/>
+                        renderItem={ ({ item, index }) => (
+                            <CardItemIncubadora title={ `${item.title} ${index}` } description={ `${item.description} ${index}` }/>
                         )}
                         keyExtractor={(item, index) => ''+index}
                     />

@@ -10,6 +10,7 @@ const Colors = {
     drawerContentBackground: '#105648',
     drawerHeaderBackground: '#0A372E',
     iconUserDefaultColor: '#8492A6',
+    buttonCadastrarParceiro: '#47525D',
     edgeDivisorDrawerNavigatorColor: '#C0CCDA'
 }
 

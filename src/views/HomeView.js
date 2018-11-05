@@ -7,7 +7,7 @@ import IncubadoraView from './IncubadoraView';
 import IncubadosView from './IncubadosView';
 import HeaderComponent from '../components/HeaderComponent';
 import BuscarView from './BuscarView';
-import Icons from 'react-native-vector-icons/Entypo';
+import IconMenu from '../components/IconMenu';
 
 
 const TabNavigator = createMaterialTopTabNavigator({
@@ -35,17 +35,12 @@ const TabNavigator = createMaterialTopTabNavigator({
     }
 )
 
-const Icon = props => (
-    <TouchableOpacity onPress={() => props.navigation.openDrawer()}>
-        <Icons name='menu' size={28} color='white' />
-    </TouchableOpacity>
-);
-
 class HomeView extends Component {
   render() {
+    const Icon = IconMenu(this.props);
     return (
       <View style={ Styles.HomeContainer }>
-        <HeaderComponent icon={() => Icon(this.props)}/>
+        <HeaderComponent icon={ Icon }/>
         <TabNavigator />
       </View>
     )

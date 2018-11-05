@@ -29,6 +29,8 @@ build/
 .idea
 .gradle
 local.properties
+*.release.properties
+*.debug.properties
 *.iml
 
 # node.js
@@ -36,6 +38,8 @@ local.properties
 node_modules/
 npm-debug.log
 yarn-error.log
+package-lock.json
+yarn-lock.json
 
 # BUCK
 buck-out/

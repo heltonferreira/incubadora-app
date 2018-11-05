@@ -4,7 +4,9 @@
 	"private": true,
 	"scripts": {
 		"start": "node node_modules/react-native/local-cli/cli.js start",
-		"test": "jest"
+		"test": "jest",
+		"android-release": "cp android/gradle.release.properties android/gradle.properties && cd android/ && ./gradlew assembleRelease && cd ../ && react-native run-android --variant=release",
+		"android-debug": "cp android/gradle.debug.properties android/gradle.properties && react-native run-android"
 	},
 	"dependencies": {
 		"base-64": "^0.1.0",

@@ -12,7 +12,7 @@ const UserIconDefault = () => (
 const Description = (props) => (
     <View>
         <Text style={{ color: 'black' }}>{props.title}</Text>                    
-        <Text style={{ color: '#8492A6' }} >{props.description}</Text>                    
+        <Text style={{ color: '#8492A6' }} >{props.description}</Text> 
     </View>
 );
 
@@ -21,7 +21,7 @@ class CardItemIncubadora extends Component {
         return (
             <TouchableOpacity style={{ height: 70 }}>
                 <View style={ Styles.CardItemContainer }>
-                    <Description title={ this.props.title } description={ this.props.description }/>
+                    <Description title={ this.props.title } description={ this.props.description } index={ this.props.index }/>
                     <UserIconDefault />
                 </View>
             </TouchableOpacity>
